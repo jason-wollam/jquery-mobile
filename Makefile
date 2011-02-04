@@ -14,7 +14,7 @@ FILES = js/jquery.ui.widget.js \
   js/jquery.mobile.support.js \
   js/jquery.mobile.event.js \
   js/jquery.mobile.hashchange.js \
-  js/jquery.mobile.config.js \
+  js/jquery.mobile.options.js \
   js/jquery.mobile.page.js \
   js/jquery.mobile.core.js \
   js/jquery.mobile.navigation.js \

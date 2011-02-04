@@ -5,7 +5,7 @@
 * http://jquery.org/license
 */
 (function($){
-	$.mobile.config = {
+	$.mobile.options = {
 		selectmenu: {
 			theme: null,
 			disabled: false,

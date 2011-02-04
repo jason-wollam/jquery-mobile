@@ -6,7 +6,7 @@
 */
 (function($, undefined ) {
 $.widget( "mobile.selectmenu", $.mobile.widget, {
-	options: $.mobile.config.selectmenu,
+	options: $.mobile.options.selectmenu,
 	_create: function(){
 
 		var self = this,
