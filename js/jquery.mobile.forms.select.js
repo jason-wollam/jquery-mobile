@@ -6,21 +6,7 @@
 */
 (function($, undefined ) {
 $.widget( "mobile.selectmenu", $.mobile.widget, {
-	options: {
-		theme: null,
-		disabled: false,
-		icon: 'arrow-d',
-		iconpos: 'right',
-		inline: null,
-		corners: true,
-		shadow: true,
-		iconshadow: true,
-		menuPageTheme: 'b',
-		overlayTheme: 'a',
-		hidePlaceholderMenuItems: true,
-		closeText: 'Close',
-		nativeMenu: false
-	},
+	options: $.mobile.config.selectmenu,
 	_create: function(){
 
 		var self = this,
