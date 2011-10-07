@@ -62,7 +62,7 @@
 			if( self.onHashChangeDisabled ){
 				return;
 			}
-			
+
 			var href, state,
 				hash = location.hash,
 				isPath = $.mobile.path.isPath( hash );
@@ -99,6 +99,8 @@
 			// if there's no state its not a popstate we care about, ie chrome's initial popstate
 			// or forward popstate
 			if( poppedState ) {
+				alert( poppedState.hash );
+				
 				// disable any hashchange triggered by the browser
 				self.nextHashChangePrevented( true );
 
