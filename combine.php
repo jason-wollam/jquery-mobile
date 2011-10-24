@@ -1,22 +1,18 @@
 <?php
-// Get the filetype and array of files
-if ( ! isset($type) || ! isset($files) )
+
+if (!isset($type) || !isset($elements))
 {
-	echo '$type and $files must be specified!';
+	echo "\$type and \$elements must be specified!";
 	exit;
 }
 
 $contents = '';
-
-// Loop through the files adding them to a string
-foreach ( $files as $file ) {
-	$contents .= file_get_contents($file). "\n\n";
+reset($elements);
+while (list(,$element) = each($elements)) {
+	$contents .= "\n\n" . file_get_contents($element);
 }
 
-// Set the content type, filesize and an expiration so its not cached
-header('Content-Type: ' . $type);
-header('Content-Length: ' . strlen($contents));
-header('Expires: Fri, 01 Jan 2010 05:00:00 GMT');
-
-// Deliver the file
+header("Content-Type: " . $type);
+header("Content-Length: " . strlen($contents));
 echo $contents;
+?>

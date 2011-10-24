@@ -1,4 +1,4 @@
-<?php
+<?
 $location = isset($_GET['location']) ? $_GET['location'] : '02135';
 
 //get xml from google api
@@ -19,10 +19,9 @@ $forecast_list = $xml->xpath("/xml_api_reply/weather/forecast_conditions");
 <!DOCTYPE html> 
 <html> 
 	<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-	<title>jQuery Mobile Framework - Weather for <?php echo $information[0]->city['data']; ?></title> 
-	<link rel="stylesheet"  href="../../css/themes/default/" />
+	<meta charset="utf-8" /> 
+	<title>jQuery Mobile Framework - Weather for <?= $information[0]->city['data']; ?></title> 
+	<link rel="stylesheet" href="../../themes/default/" />
 	<script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js"></script>
 	<style>
@@ -47,7 +46,7 @@ $forecast_list = $xml->xpath("/xml_api_reply/weather/forecast_conditions");
 
 	<form action="" method="get" class="ui-body ui-body-a ">
 		<label for="location">Change zip code:</label>
-		<input type="search" name="location" id="location" value="<?php echo$location; ?>" placeholder="zip code..." data-theme="a" />
+		<input type="search" name="location" id="location" value="<?=$location; ?>" placeholder="zip code..." data-theme="a" />
 		<input type="submit" data-role="nojs" value="submit" />
 			</form>
 
@@ -56,10 +55,10 @@ $forecast_list = $xml->xpath("/xml_api_reply/weather/forecast_conditions");
 		<h1>Currently in <?=$information[0]->city['data']; ?>:</h1>
 		<div class="current ui-body ui-bar-a ui-corner-all">
 
-            <img src="<?php echo 'http://www.google.com' . $current[0]->icon['data']?>" alt="weather">
+            <img src="<?= 'http://www.google.com' . $current[0]->icon['data']?>" alt="weather">
             <p class="condition">
-            <?php echo $current[0]->temp_f['data']; ?>&deg; F,
-            <?php echo $current[0]->condition['data']; ?>
+            <?= $current[0]->temp_f['data'] ?>&deg; F,
+            <?= $current[0]->condition['data'] ?>
             
             </p>
         </div>
@@ -67,23 +66,24 @@ $forecast_list = $xml->xpath("/xml_api_reply/weather/forecast_conditions");
 
         <ul data-role="listview" data-inset="true" data-theme="a">
         	<li data-role="list-divider">This week's forecast</li>
-        <?php foreach ($forecast_list as $forecast) : ?>
+        <? foreach ($forecast_list as $forecast) : ?>
         
         	<li>
-            <img src="<?php echo 'http://www.google.com' . $forecast->icon['data']; ?>"> 
-            <h3><?php echo $forecast->day_of_week['data']; ?></h3>
+            <img src="<?= 'http://www.google.com' . $forecast->icon['data']?>"> 
+            <h3><?= $forecast->day_of_week['data']; ?></h3>
             <p>
-	            <?php echo $forecast->low['data']; ?>&deg; F - <?php echo $forecast->high['data']; ?>&deg; F,
-	            <?php echo $forecast->condition['data']; ?>
+	            <?= $forecast->low['data'] ?>&deg; F - <?= $forecast->high['data'] ?>&deg; F,
+	            <?= $forecast->condition['data'] ?>
             </p>
             </li>
         	
-        <?php endforeach; ?>
+        <? endforeach ?>
 		</ul> 
 	</div>
 	
 	
 </div>
+
 
 </body>
 </html>
